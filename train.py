@@ -149,12 +149,12 @@ class FIGR:
             
 
     def training(self):
-        while self.eps <= 1000:
+        while self.eps <= 1000000:
             self.reset_meta_model()
             self.meta_training_loop()
 
             # Validation run every 10000 training loop
-            if self.eps % 10 == 0:
+            if self.eps % 1000 == 0:
                 self.validation_run()
                 self.checkpoint_model()
             self.eps += 1
